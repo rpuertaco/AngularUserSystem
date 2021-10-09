@@ -1,0 +1,24 @@
+<h1>Welcome to Gastrolinked</h1>
+
+<h2>register</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <div>
+        <label for="name">Restaurant Name:</label>
+        <input type="text" [formControl]="name">
+    </div>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" [formControl]="username">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" [formControl]="password">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="email" [formControl]="email">
+    </div>
+    <button type="submit">Register Restaurant</button>
+</form>

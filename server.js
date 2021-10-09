@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
+const Restaurant = require("./src/app/Models/ServerModel/restaurantModel")
 var Test = require("./src/app/Models/ServerModel/userModel");
 
 
@@ -42,6 +43,11 @@ app.get("/api/test", function (req, res) {
             res.send(tests);
         }
     });
+
+});
+
+app.post("/api/register", function (req, res) {
+    const newRestaurant = new Restaurant()
 
 });
 
