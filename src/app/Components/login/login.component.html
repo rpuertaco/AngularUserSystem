@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div style="margin-left: auto; margin-right: auto">
+    <p id="loginFeedback"></p>
+</div>
+<h1>Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" [formControl]="username">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" [formControl]="password">
+    </div>
+    <button type="submit">Log in</button>
+</form>
+<!-- 
+<button (click)="change()">Click Emisor</button>
+<button (click)="changeAdded()">Added</button> -->

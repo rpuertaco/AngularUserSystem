@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gastrolinked';
+  // currentUser = "Hello Stranger";
+
+  // loadUser(e: any) {
+  //   console.log(e);
+  // }
+  // componentRemoved(e: any) {
+  //   console.log("Notadded");
+  // }
+
 }

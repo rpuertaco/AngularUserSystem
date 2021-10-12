@@ -8,8 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { ReactiveFormsModule } from "@angular/forms";
-
+import { ReactiveFormsModule } from "@angular/forms"
 
 @NgModule({
   declarations: [
