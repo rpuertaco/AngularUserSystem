@@ -12,4 +12,6 @@
     <li><a routerLink="/register" routerLinkActive="active">
             Register
         </a></li>
+    <li *ngIf="isLoggedIn"><a href="javascript: void(0);" (click)="logOut()">Log out</a></li>
+
 </ul>

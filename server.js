@@ -82,7 +82,7 @@ app.post("/api/register", function (req, res) {
             res.status(500).send(err);
         }
         passport.authenticate("local")(req, res, function () {
-            console.log("Register Succesful : " + user.username);
+            console.log("Register Succesful : " + user.name);
             res.send(user);
 
         });
@@ -97,8 +97,8 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
     if (req.user) {
         const loggedUser = {
             // _id: req.user._id,
-            // name: req.user.name,
-            username: req.user.username,
+            name: req.user.name,
+            // username: req.user.username,
             loggedIn: true
         };
 
@@ -112,14 +112,14 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
 app.get("/api/currentUser", function (req, res) {
     if (res.locals.currentUser) {
         const loggedUser = {
-            username: res.locals.currentUser.username,
+            name: res.locals.currentUser.name,
             loggedIn: true
         }
         res.send(loggedUser);
 
     } else {
         const loggedUser = {
-            username: "Hello Stranger",
+            name: " ",
             loggedIn: false
         }
         res.send(loggedUser);
@@ -127,6 +127,17 @@ app.get("/api/currentUser", function (req, res) {
     }
 
 
+});
+
+app.get("/api/logout", function (req, res) {
+    req.session.destroy(function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+        res.send({ text: "user logged Out" });
+
+
+    });
 });
 
 

@@ -5,8 +5,8 @@ import { AuthDTO } from '../Models/AngularModel/auth.dto';
 
 interface loggedUser {
   // _id: string,
-  username: string,
-  // name: string,
+  // username: string,
+  name: string,
   loggedIn: boolean
 }
 
@@ -16,6 +16,7 @@ interface loggedUser {
 export class AuthService {
   private urlGastrolinkApi: string;
   private controller: string;
+
 
   constructor(
     private http: HttpClient
@@ -29,6 +30,8 @@ export class AuthService {
     return this.http.post<loggedUser>(this.urlGastrolinkApi, auth).toPromise()
 
   }
+
+
 
 
 

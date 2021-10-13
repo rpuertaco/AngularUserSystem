@@ -10,19 +10,48 @@
 
     <div>
         <label for="name">Restaurant Name:</label>
-        <input type="text" [formControl]="name">
+        <input type="text" [formControl]="name" required minlength="1" maxlength="50">
+        <div *ngIf="name.errors">
+            <div *ngIf="name.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+                <div *ngIf="name.errors.required">Restaurant name is required</div>
+                <div *ngIf="name.errors.maxlength">Restaurant name must be maximum 50 characters </div>
+                <div *ngIf="name.errors.minlength">Restaurant name must be at least 1 characters</div>
+            </div>
+        </div>
+
     </div>
     <div>
         <label for="username">Username: </label>
-        <input type="text" [formControl]="username">
+        <input type="text" [formControl]="username" required minlength="5" maxlength="30">
+        <div *ngIf="username.errors">
+            <div *ngIf="username.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+                <div *ngIf="username.errors.required">Username is required</div>
+                <div *ngIf="username.errors.maxlength">Username must be maximum 30 characters </div>
+                <div *ngIf="username.errors.minlength">Username must be at least 5 characters</div>
+            </div>
+        </div>
     </div>
     <div>
         <label for="password">Password: </label>
         <input type="password" [formControl]="password">
+        <div *ngIf="password.errors">
+            <div *ngIf="password.errors && isValidForm != null && !isValidForm" [ngClass]="'error'" required>
+                <div *ngIf="password.errors.required">Password is required</div>
+                <div *ngIf="password.errors.maxlength">Password must be maximum 16 characters </div>
+                <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+            </div>
+        </div>
     </div>
     <div>
         <label for="email">Email: </label>
-        <input type="email" [formControl]="email">
+        <input type="email" [formControl]="email" required>
+        <div *ngIf="email.errors">
+            <div *ngIf="email.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+                <div *ngIf="email.errors.required">Email date is required</div>
+                <div *ngIf="email.errors.pattern">Email date must be in a valid email format</div>
+
+            </div>
+        </div>
     </div>
     <button type="submit">Register Restaurant</button>
 </form>

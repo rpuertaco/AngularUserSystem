@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { UserDTO } from '../Models/AngularModel/user.dto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,6 @@ import { UserDTO } from '../Models/AngularModel/user.dto';
 export class UserService {
   private urlGastrolinkApi: string;
   private controller: string;
-
 
   constructor(private http: HttpClient) {
     this.controller = "register";
@@ -26,11 +27,16 @@ export class UserService {
     return this.http.get<any>("/api/currentUser").toPromise()
   }
 
-  updateUsername(username: string): void {
+  updateUsername(name: string): void {
     const currentUser = document.getElementById("currentUser");
     if (currentUser) {
-      currentUser.textContent = "Hello " + username;
+      currentUser.textContent = name;
     }
+
+  }
+
+  logOut() {
+    return this.http.get<any>("/api/logout").toPromise();
 
   }
 }
