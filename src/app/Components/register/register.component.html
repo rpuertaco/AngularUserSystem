@@ -1,5 +1,5 @@
-<div style="margin-left: auto; margin-right: auto">
-    <p id="registerFeedback"></p>
+<div>
+    <p id="registerFeedback" class="requestOk">Test</p>
 </div>
 
 <h1>Welcome to Gastrolinked</h1>
@@ -43,13 +43,33 @@
         </div>
     </div>
     <div>
+        <label for="password0">Confirm password: </label>
+        <input type="password0" [formControl]="password0">
+        <div *ngIf="password0.errors">
+            <div *ngIf="password0.errors && isValidForm != null && !isValidForm" [ngClass]="'error'" required>
+                <div *ngIf="password0.errors.required">Password is required</div>
+                <div *ngIf="password0.errors.mustMatch">Passwords does not match</div>
+            </div>
+        </div>
+    </div>
+    <div>
         <label for="email">Email: </label>
         <input type="email" [formControl]="email" required>
         <div *ngIf="email.errors">
             <div *ngIf="email.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
-                <div *ngIf="email.errors.required">Email date is required</div>
-                <div *ngIf="email.errors.pattern">Email date must be in a valid email format</div>
+                <div *ngIf="email.errors.required">Email is required</div>
+                <div *ngIf="email.errors.pattern">Email must be in a valid email format</div>
 
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="email0">Confirm email: </label>
+        <input type="email0" [formControl]="email0" required>
+        <div *ngIf="email0.errors">
+            <div *ngIf="email0.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+                <div *ngIf="email0.errors.required">Email is required</div>
+                <div *ngIf="email0.errors.mustMatch">Passwords does not match</div>
             </div>
         </div>
     </div>

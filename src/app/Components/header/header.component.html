@@ -6,10 +6,10 @@
     <li><a routerLink="/" routerLinkActive="active">
             Home
         </a></li>
-    <li><a routerLink="/login" routerLinkActive="active">
+    <li *ngIf="!isLoggedIn"><a routerLink="/login" routerLinkActive="active">
             Login
         </a></li>
-    <li><a routerLink="/register" routerLinkActive="active">
+    <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active">
             Register
         </a></li>
     <li *ngIf="isLoggedIn"><a href="javascript: void(0);" (click)="logOut()">Log out</a></li>

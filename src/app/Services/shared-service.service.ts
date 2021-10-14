@@ -4,7 +4,7 @@ export interface ResponseError {
   statusCode: number;
   message: string;
   messageDetail: string;
-  code: string;
+  code: number;
   timestamp: string;
   path: string;
   method: string;
@@ -44,16 +44,25 @@ export class SharedService {
         } else {
           if (error?.status === 401) {
             toastMsg.textContent = "Incorrect Username or Password";
-          } else if (error?.name === "UserExistsError") {
-            toastMsg.textContent = "Username or email already in use";
+          } else if (error?.message) {
+
+            toastMsg.textContent = error.message;
 
           }
-          else {
+          else if (error?.name || error?.status) {
+
             toastMsg.textContent =
               'Something went wrong:  ' +
               error?.name +
               '. Error: ' +
               error?.status + " " + error?.statusText;
+          } else if (error?.code === 11000) {
+
+
+            toastMsg.textContent = "Email already in use";
+
+          } else {
+            toastMsg.textContent = "Something went wrong";
           }
 
         }
