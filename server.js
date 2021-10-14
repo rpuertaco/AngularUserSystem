@@ -60,9 +60,7 @@ app.use(function (req, res, next) {
 //     }
 // });
 
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname + "/dist/gastrolinked/index.html"));
-});
+
 
 // app.get("/api/test", function (req, res) {
 //     Test.find({}, function (err, tests) {
@@ -140,7 +138,9 @@ app.get("/api/logout", function (req, res) {
     });
 });
 
-
+app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname + "/dist/gastrolinked/index.html"));
+});
 
 
 

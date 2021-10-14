@@ -44,7 +44,7 @@
     </div>
     <div>
         <label for="password0">Confirm password: </label>
-        <input type="password0" [formControl]="password0">
+        <input type="password" [formControl]="password0">
         <div *ngIf="password0.errors">
             <div *ngIf="password0.errors && isValidForm != null && !isValidForm" [ngClass]="'error'" required>
                 <div *ngIf="password0.errors.required">Password is required</div>
@@ -65,7 +65,7 @@
     </div>
     <div>
         <label for="email0">Confirm email: </label>
-        <input type="email0" [formControl]="email0" required>
+        <input type="email" [formControl]="email0" required>
         <div *ngIf="email0.errors">
             <div *ngIf="email0.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
                 <div *ngIf="email0.errors.required">Email is required</div>
